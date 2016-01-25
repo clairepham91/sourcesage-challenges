@@ -25,25 +25,66 @@
 
 import React from 'react';
 import styles from './styles.css';
+import { Icon } from '../Icon';
 
+//ES6 Classes no autobinding
 export class Button extends React.Component {
   constructor(props) {
     super(props);
     // Add some state for the component.
+    
     this.state = {
+      follow : false,
+      hover: false
     };
+  }
+
+  handleClick() {
+    var currState = this.state.follow
+    this.setState({follow: !currState});
+  }
+  mouseOver () {
+    this.setState({hover: true});
+  }
+
+  mouseOut () {
+    this.setState({hover: false});
   }
 
   /**
    * Add event handlers to the button here.
    */
   render() {
+    var btnText, btnColor;
+    if (this.state.follow) {
+      if (this.state.hover) {
+        btnText = "Unfollow SourceSage";
+        btnColor = {"background": "#A30000", "color": "white"}
+      } else {
+        btnText = "Following SourceSage";
+        btnColor = {"background": "#55acee", "color": "white"}
+      } 
+    } else {
+      btnText = "Follow SourceSage";
+    }
+    
     return (
-      <button
-        className={styles['button']} // PostCSS modules.
+      <button onClick={this.handleClick.bind(this)} 
+      onMouseOver={this.mouseOver.bind(this)}
+      onMouseOut={this.mouseOut.bind(this)}
+      className={styles['button']} // PostCSS modules.
+      style={btnColor}
       >
-        {this.props.children}
+        <span>
+          {this.state.follow ? null : (<Icon icon="person-add" />)}
+        </span>
+        <span>{btnText}</span>
       </button>
     );
   }
 }
+
+
+
+
+

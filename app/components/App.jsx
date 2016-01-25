@@ -25,7 +25,7 @@ export default function App() {
             }}
           >
           <UserInfo
-            name="Fill in your name here!"
+            name="Claire Pham"
           />
           </div>
         </CommonMaxWidth>
@@ -62,7 +62,7 @@ export default function App() {
       </CommonMaxWidth>
       <div className={styles['challenge-accepted']}>
         <div className={styles['button-container']}>
-          <Button>Change me!</Button>
+          <Button>Follow SourceSage</Button>
         </div>
       </div>
     </section>

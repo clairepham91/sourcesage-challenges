@@ -2,4 +2,14 @@
  * Bonus: You can extend this class.
  */
 .button {
+	height: 40px;
+	padding: 6px 12px 6px 12px;
+  	border: #ccc solid 1px;
+  	border-radius: 3px;
+  	/*background-color: #f5f8fa;*/
+  	background-image: linear-gradient(#fff,#f5f8fa);
+}
+
+.button svg {
+	padding-right: 5px;
 }
